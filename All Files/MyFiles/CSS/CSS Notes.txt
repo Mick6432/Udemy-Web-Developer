@@ -1,0 +1,819 @@
+Cascading Style Sheets (CSS)
+
+** Three ways to add CSS to HTML **
+    1) Inline
+    2) Internal
+    3) External
+No matter which style is used the <style></style> tag goes in the <head>
+
+** Inline Styles **
+An inline style may be used to apply a unique style for a single element.
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+
+Example
+<h1 style="color:blue;margin-left:30px;">This is a heading</h1>
+
+** Internal Style Sheet **
+An internal style sheet may be used if one single page has a unique style.
+Internal styles are defined within the <style> element, inside the <head> section of an HTML page:
+
+Example
+<head>
+<style>
+    body {
+        background-color: linen;
+    }
+
+    h1 {
+        color: maroon;
+        margin-left: 40px;
+    } 
+</style>
+</head>
+
+** External Style Sheet **
+With an external style sheet, you can change the look of an entire website by changing just one file!
+Each page must include a reference to the external style sheet file inside the <link> element. The <link> element goes inside the <head> section:
+
+* Example *
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+** Cascading Order **
+What style will be used when there is more than one style specified for an HTML element?
+Generally speaking we can say that all the styles will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
+
+Inline style (inside an HTML element)
+External and internal style sheets (in the head section)
+Browser default
+
+So, an inline style (inside a specific HTML element) has the highest priority, which means that it will override a style defined inside the <head> tag, or in an external style sheet, or a browser default value.
+
+** The id Selector **
+The id selector uses the id attribute of an HTML element to select a specific element.
+The id of an element should be unique within a page, so the id selector is used to select one unique element!
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+The style rule below will be applied to the HTML element with id="para1":
+
+* Example *
+#para1 {
+    text-align: center;
+    color: red;
+}
+
+** The class Selector **
+The class selector selects elements with a specific class attribute.
+To select elements with a specific class, write a period (.) character, followed by the name of the class.
+In the example below, all HTML elements with class="center" will be red and center-aligned:
+
+* Example *
+.center {
+    text-align: center;
+    color: red;
+}
+
+** Grouping Selectors **
+If you have elements with the same style definitions, like this:
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    color: red;
+}
+
+p {
+    text-align: center;
+    color: red;
+}
+It will be better to group the selectors, to minimize the code.
+To group selectors, separate each selector with a comma.
+In the example below we have grouped the selectors from the code above:
+
+* Example *
+h1, h2, p {
+    text-align: center;
+    color: red;
+}
+
+** Div **
+Div (short for division) divides the content into individual sections. Each section can then have its own formatting, as specified by the CSS. Div is a block-level container, meaning that there is a line feed after the </div> tag.
+
+* For example, if we have the following CSS declaration:
+
+.large { 
+  color: #00FF00; 
+  font-family:arial; 
+  font-size: 4pt; 
+}
+
+The HTML code
+
+<div class="large"> 
+  This is a DIV sample. 
+</div>
+
+gets displayed as
+
+This is a DIV sample.
+
+** Span **
+Span is similar to div in that they both divide the content into individual sections. The difference is that span goes into a finer level, so we can span to format a single character if needed. There is no line feed after the </span> tag.
+
+For example, if we have the following CSS declaration:
+
+.largefont { 
+  color: #0066FF; 
+  font-family:arial; 
+  font-size: 6px; 
+}
+
+The HTML code
+Span is not at the <span class="largefont">block level</span>.
+gets displayed as
+
+Span is not at the block level.
+
+________COLORS____________________________________________________________________________________________________________________
+
+** CSS Colors **
+Colors in CSS can be specified by the following methods:
+
+Hexadecimal colors
+    1) RGB colors
+    2) RGBA colors
+    3) HSL colors
+    4) HSLA colors
+    5) Predefined/Cross-browser color names
+
+
+** Hexadecimal Colors **
+A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color. All values must be between 00 and FF.
+
+For example, the #0000ff value is rendered as blue, because the blue component is set to its highest value (ff) and the others are set to 00.
+
+* Example *
+Define different HEX colors:
+
+    #p1 {background-color: #ff0000;}   /* red */
+    #p2 {background-color: #00ff00;}   /* green */
+    #p3 {background-color: #0000ff;}   /* blue */
+
+** RGB Colors **
+An RGB color value is specified with the rgb() function, which has the following syntax:
+
+rgb(red, green, blue)
+
+Each parameter (red, green, and blue) defines the intensity of the color and can be an integer between 0 and 255 or a percentage value (from 0% to 100%).
+For example, the rgb(0,0,255) value is rendered as blue, because the blue parameter is set to its highest value (255) and the others are set to 0.
+Also, the following values define equal color: rgb(0,0,255) and rgb(0%,0%,100%).
+
+* Example *
+Define different RGB colors:
+
+    #p1 {background-color: rgb(255, 0, 0);}   /* red */
+    #p2 {background-color: rgb(0, 255, 0);}   /* green */
+    #p3 {background-color: rgb(0, 0, 255);}   /* blue */
+
+** RGBA Colors **
+RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity of the object.
+An RGBA color is specified with the rgba() function, which has the following syntax:
+
+rgba(red, green, blue, alpha)
+
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+* Example *
+Define different RGB colors with opacity:
+
+    #p1 {background-color: rgba(255, 0, 0, 0.3);}   /* red with opacity */
+    #p2 {background-color: rgba(0, 255, 0, 0.3);}   /* green with opacity */
+    #p3 {background-color: rgba(0, 0, 255, 0.3);}   /* blue with opacity */
+
+** HSL Colors **
+HSL stands for hue, saturation, and lightness - and represents a cylindrical-coordinate representation of colors.
+An HSL color value is specified with the hsl() function, which has the following syntax:
+
+hsl(hue, saturation, lightness)
+
+Hue is a degree on the color wheel (from 0 to 360) - 0 (or 360) is red, 120 is green, 240 is blue. Saturation is a percentage value; 0% means a shade of gray and 100% is the full color. Lightness is also a percentage; 0% is black, 100% is white.
+
+* Example *
+Define different HSL colors:
+
+    #p1 {background-color: hsl(120, 100%, 50%);}   /* green */
+    #p2 {background-color: hsl(120, 100%, 75%);}   /* light green */
+    #p3 {background-color: hsl(120, 100%, 25%);}   /* dark green */
+    #p4 {background-color: hsl(120, 60%, 70%);}    /* pastel green */
+
+** HSLA Colors **
+HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity of the object.
+An HSLA color value is specified with the hsla() function, which has the following syntax:
+
+hsla(hue, saturation, lightness, alpha)
+
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+* Example *
+Define different HSL colors with opacity:
+
+    #p1 {background-color: hsla(120, 100%, 50%, 0.3);}   /* green with opacity */
+    #p2 {background-color: hsla(120, 100%, 75%, 0.3);}   /* light green with opacity */
+    #p3 {background-color: hsla(120, 100%, 25%, 0.3);}   /* dark green with opacity */
+    #p4 {background-color: hsla(120, 60%, 70%, 0.3);}    /* pastel green with opacity */
+_______FLOAT_____________________________________________________________________________________________________________________
+
+** The float Property **
+The float property is used for positioning and layout on web pages.
+The float property can have one of the following values:
+
+    left - The element floats to the left of its container
+    right- The element floats to the right of its container
+    none - The element does not float (will be displayed just where it occurs in the text). This is default
+    inherit - The element inherits the float value of its parent
+
+In its simplest use, the float property can be used to wrap text around images.
+
+* Example - float: right; *
+The following example specifies that an image should float to the right in a text:
+
+* Example *
+img {
+    float: right;
+}
+
+* Example - float: left; *
+The following example specifies that an image should float to the left in a text:
+
+* Example *
+img {
+    float: left;
+}
+
+* Example - No float *
+In the following example the image will be displayed just where it occurs in the text (float: none;):
+
+* Example *
+img {
+    float: none;
+}
+
+
+** The clear Property **
+The clear property specifies what elements can float beside the cleared element and on which side.
+The clear property can have one of the following values:
+
+none - Allows floating elements on both sides. This is default
+left - No floating elements allowed on the left side
+right- No floating elements allowed on the right side
+both - No floating elements allowed on either the left or the right side
+inherit - The element inherits the clear value of its parent
+
+The most common way to use the clear property is after you have used a float property on an element.
+When clearing floats, you should match the clear to the float. If an element is floated to the left, then you should clear to the left. Your floated element will continue to float, but the cleared element will appear below it on the web page.
+
+The following example clears the float to the left. Means that no floating elements are allowed on the left side (of the div):
+
+* Example *
+div {
+    clear: left;
+}
+_______POSITION__________________________________________________________________________________________________________________
+
+** The position Property **
+The position property specifies the type of positioning method used for an element.
+
+There are five different position values:
+
+    1) static
+    2) relative
+    3) fixed
+    4) absolute
+    5) sticky
+
+Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the position property is set first. They also work differently depending on the position value.
+
+* position: static; *
+HTML elements are positioned static by default.
+Static positioned elements are not affected by the top, bottom, left, and right properties.
+An element with position: static; is not positioned in any special way; it is always positioned according to the normal flow of the page:
+
+This <div> element has position: static;
+Here is the CSS that is used:
+
+* Example *
+div.static {
+    position: static;
+    border: 3px solid #73AD21;
+}
+
+** position: relative; **
+An element with position: relative; is positioned relative to its normal position.
+Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.
+This <div> element has position: relative;
+Here is the CSS that is used:
+
+* Example *
+div.relative {
+    position: relative;
+    left: 30px;
+    border: 3px solid #73AD21;
+}
+
+** position: fixed; **
+An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element.
+A fixed element does not leave a gap in the page where it would normally have been located.
+Notice the fixed element in the lower-right corner of the page. Here is the CSS that is used:
+
+* Example *
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+
+** position: absolute; **
+An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
+However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
+
+Note: A "positioned" element is one whose position is anything except static.
+
+Here is the CSS that is used:
+
+Example
+div.relative {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21;
+} 
+
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+
+** position: sticky; **
+An element with position: sticky; is positioned based on the user's scroll position.
+A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
+
+Note: Internet Explorer, Edge 15 and earlier versions do not support sticky positioning. Safari requires a -webkit- prefix (see example below). You must also specify at least one of top, right, bottom or left for sticky positioning to work.
+
+In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.
+
+Example
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: green;
+    border: 2px solid #4CAF50;
+}
+
+** Overlapping Elements **
+When elements are positioned, they can overlap other elements.
+The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others).
+An element can have a positive or negative stack order:
+
+Example
+img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+An element with greater stack order is always in front of an element with a lower stack order.
+
+Note: If two positioned elements overlap without a z-index specified, the element positioned last in the HTML code will be shown on top.
+
+All CSS Positioning Properties
+    Property	                        Description
+    --------                            -----------
+    bottom	                Sets the bottom margin edge for a positioned box
+    clip	                Clips an absolutely positioned element
+    left	                Sets the left margin edge for a positioned box
+    position	            Specifies the type of positioning for an element
+    right	                Sets the right margin edge for a positioned box
+    top	                    Sets the top margin edge for a positioned box
+    z-index	                Sets the stack order of an element
+________MARGINS_______________________________________________________________________________________________________________________
+
+** CSS Margins **
+The CSS margin properties are used to create space around elements, outside of any defined borders.
+With CSS, you have full control over the margins. There are properties for setting the margin for each side of an element (top, right, bottom, and left).
+
+** Margin - Individual Sides **
+CSS has properties for specifying the margin for each side of an element:
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+All the margin properties can have the following values:
+
+auto - the browser calculates the margin
+length - specifies a margin in px, pt, cm, etc.
+% - specifies a margin in % of the width of the containing element
+inherit - specifies that the margin should be inherited from the parent element
+
+Tip: Negative values are allowed.
+
+The following example sets different margins for all four sides of a <p> element:
+
+Example
+p {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+}
+
+** Margin - Shorthand Property **
+To shorten the code, it is possible to specify all the margin properties in one property.
+
+The margin property is a shorthand property for the following individual margin properties:
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+So, here is how it works:
+
+** If the margin property has four values: **
+
+margin: 25px 50px 75px 100px;
+top margin is 25px
+right margin is 50px
+bottom margin is 75px
+left margin is 100px
+Example
+p {
+    margin: 25px 50px 75px 100px;
+}
+
+** If the margin property has three values: **
+
+margin: 25px 50px 75px;
+top margin is 25px
+right and left margins are 50px
+bottom margin is 75px
+Example
+p {
+    margin: 25px 50px 75px;
+}
+
+** If the margin property has two values: **
+
+margin: 25px 50px;
+top and bottom margins are 25px
+right and left margins are 50px
+Example
+p {
+    margin: 25px 50px;
+}
+
+** If the margin property has one value: **
+
+margin: 25px;
+all four margins are 25px
+
+* Example *
+p {
+    margin: 25px;
+}
+
+** The auto Value **
+You can set the margin property to auto to horizontally center the element within its container.
+
+The element will then take up the specified width, and the remaining space will be split equally between the left and right margins:
+
+* Example *
+div {
+    width: 300px;
+    margin: auto;
+    border: 1px solid red;
+}
+
+** The inherit Value **
+This example lets the left margin of the <p class="ex1"> element be inherited from the parent element (<div>):
+
+* Example *
+div {
+    border: 1px solid red;
+    margin-left: 100px;
+}
+
+p.ex1 {
+    margin-left: inherit;
+}
+
+** Margin Collapse **
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+This does not happen on left and right margins! Only top and bottom margins!
+
+Look at the following example:
+
+* Example *
+h1 {
+    margin: 0 0 50px 0;
+}
+
+h2 {
+    margin: 20px 0 0 0;
+}
+
+In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+______PADDING___________________________________________________________________________________________________________________
+
+** CSS Padding **
+The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
+With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).
+
+** Padding - Individual Sides **
+CSS has properties for specifying the padding for each side of an element:
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+All the padding properties can have the following values:
+
+length - specifies a padding in px, pt, cm, etc.
+% - specifies a padding in % of the width of the containing element
+inherit - specifies that the padding should be inherited from the parent element
+Note: Negative values are not allowed.
+
+The following example sets different padding for all four sides of a <div> element: 
+
+* Example *
+div {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+ 
+** Padding - Shorthand Property **
+To shorten the code, it is possible to specify all the padding properties in one property.
+
+The padding property is a shorthand property for the following individual padding properties:
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+So, here is how it works:
+
+** If the padding property has four values: **
+
+padding: 25px 50px 75px 100px;
+top padding is 25px
+right padding is 50px
+bottom padding is 75px
+left padding is 100px
+
+* Example *
+div {
+    padding: 25px 50px 75px 100px;
+}
+
+** If the padding property has three values: **
+
+padding: 25px 50px 75px;
+top padding is 25px
+right and left paddings are 50px
+bottom padding is 75px
+
+* Example *
+div {
+    padding: 25px 50px 75px;
+}
+
+** If the padding property has two values: **
+
+padding: 25px 50px;
+top and bottom paddings are 25px
+right and left paddings are 50px
+
+* Example *
+div {
+    padding: 25px 50px;
+}
+
+** If the padding property has one value: **
+
+padding: 25px;
+all four paddings are 25px
+
+* Example *
+div {
+    padding: 25px;
+}
+
+** Padding and Element Width **
+The CSS width property specifies the width of the element's content area. The content area is the portion inside the padding, border, and margin of an element (the box model).
+So, if an element has a specified width, the padding added to that element will be added to the total width of the element. This is often an undesirable result.
+In the following example, the <div> element is given a width of 300px. However, the actual rendered width of the <div> element will be 350px (300px + 25px of left padding + 25px of right padding):
+
+* Example *
+div {
+    width: 300px;
+    padding: 25px;
+}
+
+To keep the width at 300px, no matter the amount of padding, you can use the box-sizing property. This causes the element to maintain its width; if you increase the padding, the available content space will decrease. Here is an example:
+
+* Example *
+div {
+    width: 300px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+______BORDERS________________________________________________________________________________________________________
+
+** CSS Border Properties **
+The CSS border properties allow you to specify the style, width, and color of an element's border.
+
+* Border Style *
+The border-style property specifies what kind of border to display.
+
+The following values are allowed:
+
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+
+The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+* Example *
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+* Border Width *
+The border-width property specifies the width of the four borders.
+The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick.
+The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+* Example *
+p.one {
+    border-style: solid;
+    border-width: 5px;
+}
+
+p.two {
+    border-style: solid;
+    border-width: medium;
+}
+
+p.three {
+    border-style: solid;
+    border-width: 2px 10px 4px 20px;
+}
+
+* Border Color *
+The border-color property is used to set the color of the four borders.
+
+The color can be set by:
+
+name - specify a color name, like "red"
+Hex - specify a hex value, like "#ff0000"
+RGB - specify a RGB value, like "rgb(255,0,0)"
+transparent
+
+The border-color property can have from one to four values (for the top border, right border, bottom border, and the left border). 
+
+If border-color is not set, it inherits the color of the element.
+
+* Example *
+p.one {
+    border-style: solid;
+    border-color: red;
+}
+
+p.two {
+    border-style: solid;
+    border-color: green;
+}
+
+p.three {
+    border-style: solid;
+    border-color: red green blue yellow;
+}
+
+* Border - Individual Sides *
+From the examples above you have seen that it is possible to specify a different border for each side.
+In CSS, there are also properties for specifying each of the borders (top, right, bottom, and left):
+
+* Different Border Styles *
+* Example *
+p {
+    border-top-style: dotted;
+    border-right-style: solid;
+    border-bottom-style: dotted;
+    border-left-style: solid;
+}
+
+The example above gives the same result as this:
+
+* Example *
+p {
+    border-style: dotted solid;
+}
+
+If the border-style property has four values:
+
+border-style: dotted solid double dashed;
+top border is dotted
+right border is solid
+bottom border is double
+left border is dashed
+If the border-style property has three values:
+
+border-style: dotted solid double;
+top border is dotted
+right and left borders are solid
+bottom border is double
+If the border-style property has two values:
+
+border-style: dotted solid;
+top and bottom borders are dotted
+right and left borders are solid
+If the border-style property has one value:
+
+border-style: dotted;
+all four borders are dotted
+The border-style property is used in the example above. However, it also works with border-width and border-color.
+
+* Border - Shorthand Property *
+As you can see from the examples above, there are many properties to consider when dealing with borders.
+To shorten the code, it is also possible to specify all the individual border properties in one property.
+The border property is a shorthand property for the following individual border properties:
+
+border-width
+border-style (required)
+border-color
+
+* Example *
+p {
+    border: 5px solid red;
+}
+
+You can also specify all the individual border properties for just one side:
+
+Left Border
+p {
+    border-left: 6px solid red;
+    background-color: lightgrey;
+}
+
+Bottom Border
+p {
+    border-bottom: 6px solid red;
+    background-color: lightgrey;
+}
+
+* Rounded Borders *
+The border-radius property is used to add rounded borders to an element:
+
+* Example *
+p {
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+Note: The border-radius property is not supported in IE8 and earlier versions.
+
+___________FONTS________________________________________________________________________________________________________________
+
+Commonly Used Font Combinations
+The font-family property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. If the browser does not support the first font, it tries the next font.
+Start with the font you want, and end with a generic family, to let the browser pick a similar font in the generic family, if no other fonts are available:
+

@@ -1,0 +1,66 @@
+<!doctype html>
+    <html lang="en" >
+
+        <head>
+            <meta charset="utf-8">
+            <title>Webpage With Style</title>
+
+            <style type="text/css">
+
+                #new {
+                    color: lightseagreen;
+                }
+                
+                h1 {
+                    font-size: 250%;
+                    color:pink;
+                }
+
+                .underlined {
+                     text-decoration: underline;
+                     color: indigo; 
+                }
+
+                #first-section {
+                    color:blue;
+                    background-color: rgb(255, 30, 124);
+                    width:300px;
+                    position: relative;
+                    top: 100px;
+                    left: 100px;
+                    z-index: 2; 
+                    opacity: .5;              
+                }
+
+                #second-section {
+                    background-color:#2EFE2E;
+                    width:200px;
+                    position: relative;
+                    top:-100px;
+                    left: 100px;
+                   z-index: 1;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+           
+            <!-- <h2>This uses internal css using div and id's and positioning</h2> -->
+
+            <div id="first-section">
+                <p>The quick brown fox jumped over the lazy dog!</p>
+                <p>This paragraph uses an id="green". <span class="underlined">First Section</span></p>
+            </div>
+
+            <div id="second-section">
+                <p id="new" >This is another paragraph</p>
+
+                <h1>Second Section!</h1>
+            </div>
+            
+            <p>This paragraph is not floated.</p>
+
+        </body>
+    </html>

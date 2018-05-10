@@ -1,0 +1,70 @@
+<!doctype html>
+    <html lang="en" >
+
+        <head>
+            <meta charset="utf-8">
+            <title>Positioning With Padding</title>
+
+            <style type="text/css">
+
+                #new {
+                    color: lightseagreen;
+                }
+                
+                h1 {
+                    font-size: 250%;
+                    color:pink;
+                }
+
+                .underlined {
+                     text-decoration: underline;
+                     color: indigo; 
+                }
+
+                #first-section {
+                    color:#4285f4;
+                    background-color: #cef6ce;
+                    width:200px;
+                    margin-left: 200px;
+                }
+
+                #second-section {
+                    background-color:#8ab4f7;
+                    width:400px;
+                    padding: 5px 10px 15px 20px;
+                    
+                }
+
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+           
+            <!-- <h2>This uses internal css using div and id's and positioning</h2> -->
+
+            <div id="first-section">
+                <p>The quick brown fox jumped over the lazy dog!</p>
+                <p>Wow, I really love internal CSS! </p>
+            </div>
+
+            <div id="second-section">
+                <p id="new" >This is somemore text and<span class="underlined"> this text is underlined</span> </p>
+
+                <h1>CSS is COOL!</h1>
+            </div>
+            
+            <p>This paragraph is not floated.</p>
+
+        </body>
+    </html>

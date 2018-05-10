@@ -1,0 +1,122 @@
+#main {
+    margin: 40px;
+}
+
+#top-bar {
+    height: 40px;
+    width: 1200px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    float: left;
+    height: 25px;
+    width: 80px;
+    margin: 5px 10px 5px 100px;
+}
+
+.topbar-section {
+    float: left;
+    border-left: 2px #C6C6C6 solid;
+    height: 100%;
+}
+
+#signin-image {
+    float: left;
+    height: 20px;
+    width: 30px;
+    margin: 10px;
+}
+
+#middle-bar {
+    height:50px;
+    width: 1200px;
+    background-color:rgb(172,16,30);
+    margin: 0 auto;
+}
+
+#bottom-bar {
+    height: 20px;
+    width: 1200px;
+    background-color:rgb(154,16,28);
+    margin: 0 auto;
+}
+
+#asda {
+    height: 480px;
+    width: 600px;
+    border-bottom-color: darkgrey;
+    border-right-color: darkgrey;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    margin: 10px;
+}
+
+#asda-img {
+    height: 180px;
+    width: 300px;
+    float: right;
+    margin: 0px 20px;
+}
+
+h3 {
+    text-decoration: underline;
+    text-decoration-color: red;
+    color: darkgrey;
+}
+
+#asda a {
+    text-decoration: none;
+    color: gray;
+}
+
+#asda a:hover {
+    color: blue;
+}
+
+#twitter {
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+    border-bottom-color: darkgrey;
+    border-right-color: darkgrey;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    float: left;
+}
+
+#drone {
+    height: 300px;
+    width: 300px;
+    border-bottom-color: darkgrey;
+    border-right-color: darkgrey;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    float: left;
+}
+
+#next {
+    height: 300px;
+    width: 300px;
+    border-bottom-color: darkgrey;
+    border-right-color: darkgrey;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    float: left;
+}            
+
+#twitter  {
+    width: 250px;
+    height: 150px;
+}
+
+#para {
+    width: 300px;
+    float: left;
+}

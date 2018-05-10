@@ -1,0 +1,64 @@
+<!doctype html>
+    <html lang="en" >
+
+        <head>
+            <meta charset="utf-8">
+            <title>Webpage With Style</title>
+
+            <style type="text/css">
+
+                #new {
+                    color: lightseagreen;
+                }
+                
+                h1 {
+                    font-size: 250%;
+                    color:pink;
+                }
+
+                .underlined {
+                     text-decoration: underline;
+                     color: indigo; 
+                }
+
+                #first-section {
+                    color:blue;
+                    background-color: rgb(255, 30, 124);
+                    width:200px;
+                    float:right;
+                }
+
+                #yellow-bg {
+                    background-color:#2EFE2E;
+                    width:200px;
+                    float: left;
+                }
+
+                .clear-float {
+                    clear: both;
+                }
+
+            </style>
+        </head>
+
+        <body>
+           
+            <h2>This uses internal css using div and id's</h2>
+
+            <div id="first-section">
+                <p>The quick brown fox jumped over the lazy dog!</p>
+                <p>This paragraph uses an id="green". <span class="underlined">This text is underlined</span></p>
+            </div>
+
+            <div id="yellow-bg">
+                <p id="new" >This is another paragraph</p>
+
+                <h1>CSS Is Cool!</h1>
+            </div>
+            
+            <div class="clear-float" ></div>
+
+            <p>This paragraph is not floated.</p>
+
+        </body>
+    </html>
